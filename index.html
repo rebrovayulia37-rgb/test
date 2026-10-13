@@ -8,8 +8,8 @@
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
-  --bg:#f6efe3;--bg-dark:#1c1a17;--text:#1c1a17;--muted:#6b6256;
-  --accent:#c0392b;--border:#ddd5c8;--white:#fff;
+  --bg:#f6efe3;--bg-dark:#4f6b4b;--text:#2f3329;--muted:#6b6256;
+  --accent:#5c7a57;--border:#ddd5c8;--white:#fff;
   --serif:'PT Serif',Georgia,serif;--sans:'PT Sans',sans-serif;
 }
 html{scroll-behavior:smooth}
@@ -58,7 +58,7 @@ nav{position:sticky;top:0;z-index:99;background:var(--bg);border-bottom:1px soli
 .option{display:flex;align-items:center;gap:12px;padding:15px 18px;border:1.5px solid var(--border);border-radius:12px;cursor:pointer;transition:all .15s;background:var(--white)}
 .option:hover{border-color:var(--text);background:var(--bg);transform:translateX(4px)}
 .option input[type=radio]{display:none}
-.option.selected{border-color:var(--accent);background:#fdf0ee}
+.option.selected{border-color:var(--accent);background:#e9efe3}
 .option-letter{width:28px;height:28px;border:1px solid var(--border);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;flex-shrink:0;color:var(--muted);transition:all .15s}
 .option.selected .option-letter{background:var(--accent);color:white;border-color:var(--accent)}
 .option-text{font-size:15px;line-height:1.4}
@@ -214,7 +214,7 @@ nav{position:sticky;top:0;z-index:99;background:var(--bg);border-bottom:1px soli
   .summary-card { -webkit-print-color-adjust:exact; print-color-adjust:exact; border:1px solid #ddd!important }
   .summary-print-header { display:block!important }
 }
-.summary-print-header { display:none; margin-bottom:24px; padding-bottom:16px; border-bottom:2px solid #1c1a17 }
+.summary-print-header { display:none; margin-bottom:24px; padding-bottom:16px; border-bottom:2px solid #2f3329 }
 .summary-print-header h1 { font-family:'PT Serif',serif; font-size:22px; font-weight:700; margin-bottom:4px }
 .summary-print-header p { font-size:13px; color:#6b6256 }
 @media print {
@@ -223,12 +223,12 @@ nav{position:sticky;top:0;z-index:99;background:var(--bg);border-bottom:1px soli
   .result-cta, .btn-back, .q-nav { display:none!important }
   .result-card { border:none; padding:0 }
   body { background:white; font-size:13px }
-  .result-compare { background:#1c1a17!important; -webkit-print-color-adjust:exact; print-color-adjust:exact }
+  .result-compare { background:#4f6b4b!important; -webkit-print-color-adjust:exact; print-color-adjust:exact }
   .result-score-block { background:#f6efe3!important; -webkit-print-color-adjust:exact; print-color-adjust:exact }
   .print-header { display:block!important }
   .no-print { display:none!important }
 }
-.print-header { display:none; margin-bottom:24px; padding-bottom:16px; border-bottom:2px solid #1c1a17 }
+.print-header { display:none; margin-bottom:24px; padding-bottom:16px; border-bottom:2px solid #2f3329 }
 .print-header h1 { font-family:'PT Serif',serif; font-size:24px; font-weight:700; margin-bottom:4px }
 .print-header p { font-size:13px; color:#6b6256 }
 .btn-pdf { 
@@ -247,7 +247,7 @@ nav{position:sticky;top:0;z-index:99;background:var(--bg);border-bottom:1px soli
 <body>
 
 <nav>
-  <a href="#" onclick="return false" class="nav-brand">Балаки<span>рев</span></a>
+  <a href="#" onclick="return false" class="nav-brand">Реброва</a>
   <button class="btn-cab-outline" style="height:36px;font-size:12px;padding:0 16px" onclick="openLogin()">Мой кабинет</button>
 </nav>
 
@@ -401,8 +401,8 @@ nav{position:sticky;top:0;z-index:99;background:var(--bg);border-bottom:1px soli
 </div>
 
 <script>
-const BOT_TOKEN = 'ВСТАВЬ_СЮДА_ТОКЕН_БОТА';
-const SHEETS_URL_V2 = 'ВСТАВЬ_СЮДА_ССЫЛКУ_ТАБЛИЦЫ';
+const BOT_TOKEN = '8728633022:AAFCIgwaHXnaUX-Gj0tsx9w6wvcxf0o7J3k';
+const SHEETS_URL_V2 = 'https://script.google.com/macros/s/AKfycbwiozBKbHkP2MAnhL1UR-FfiP9JfYijUJv8nQbExMEBhB53vFhCeS9lad4WnzUprEk/exec';
 
 // ── ЛИЧНЫЙ КАБИНЕТ ──
 function getStorageKey(id) { return 'sharpo_' + (id || '').toLowerCase().trim().replace(/\s+/g, '_'); }
@@ -511,7 +511,7 @@ function showCabinet(email, name) {
   document.getElementById('cabContent').innerHTML = cabHtml;
   document.getElementById('cabTestsBtn').style.display = 'block';
 }
-const CHAT_ID = 'ВСТАВЬ_СЮДА_CHAT_ID';
+const CHAT_ID = '345215708';
 
 const TESTS = [
  {
@@ -2197,11 +2197,11 @@ function buildRadarSVG(items) {
   const valuePts = items.map((it,i)=>pt(i, R * Math.max(0.02,(it.pct||0)/100))).join(' ');
   const dots = items.map((it,i)=>{
     const p = pt(i, R * Math.max(0.02,(it.pct||0)/100)).split(',');
-    return `<circle cx="${p[0]}" cy="${p[1]}" r="3.5" fill="#1A7E94"/>`;
+    return `<circle cx="${p[0]}" cy="${p[1]}" r="3.5" fill="#5c7a57"/>`;
   }).join('');
   return `<svg width="${size}" height="${size}" viewBox="0 0 ${size} ${size}" style="max-width:100%;height:auto" xmlns="http://www.w3.org/2000/svg">
     ${grid}${axes}
-    <polygon points="${valuePts}" fill="rgba(26,126,148,.18)" stroke="#1A7E94" stroke-width="2"/>
+    <polygon points="${valuePts}" fill="rgba(92,122,87,.18)" stroke="#5c7a57" stroke-width="2"/>
     ${dots}${labels}
   </svg>`;
 }
@@ -2286,7 +2286,7 @@ function printSummary() {
 
     testsHtml += `
       <div style="margin-bottom:28px;page-break-inside:avoid">
-        <div style="background:#1c1a17;color:white;padding:12px 16px;display:flex;justify-content:space-between;align-items:center">
+        <div style="background:#4f6b4b;color:white;padding:12px 16px;display:flex;justify-content:space-between;align-items:center">
           <span style="font-size:15px;font-weight:700">${test.name}</span>
           <span style="font-size:14px;font-weight:700;color:${bgColors[li]}">${pct}% · ${levels[li]} уровень ${deltaHtml}</span>
         </div>
@@ -2345,7 +2345,7 @@ function printSummary() {
         </tr>`).join('')}
       </table>
     </div>
-    <div style="height:2px;background:#1c1a17;margin:0 32px"></div>`;
+    <div style="height:2px;background:#4f6b4b;margin:0 32px"></div>`;
   }
 
   // Радар по всем тестам
@@ -2362,13 +2362,13 @@ function printSummary() {
 <meta charset="UTF-8">
 <style>
   * { box-sizing:border-box; margin:0; padding:0 }
-  body { font-family:Arial,Helvetica,sans-serif; color:#1c1a17; font-size:13px; line-height:1.6; width:794px; padding:0 }
+  body { font-family:Arial,Helvetica,sans-serif; color:#2f3329; font-size:13px; line-height:1.6; width:794px; padding:0 }
   @media print { body { width:100% } }
 </style>
 </head>
 <body>
   <!-- Обложка -->
-  <div style="background:#1c1a17;color:white;padding:28px 32px;display:flex;justify-content:space-between;align-items:flex-end">
+  <div style="background:#4f6b4b;color:white;padding:28px 32px;display:flex;justify-content:space-between;align-items:flex-end">
     <div>
       <div style="font-size:24px;font-weight:700;margin-bottom:4px">Карта неврозов</div>
       <div style="font-size:12px;color:#aaa">Диагностика по Методу Шарпа</div>
@@ -2383,7 +2383,7 @@ function printSummary() {
 
   <!-- Сводный график -->
   <div style="padding:20px 32px 16px">
-    <div style="font-size:14px;font-weight:700;margin-bottom:14px;color:#1c1a17">Общая картина</div>
+    <div style="font-size:14px;font-weight:700;margin-bottom:14px;color:#2f3329">Общая картина</div>
     ${summaryBars}
     <div style="text-align:center;margin-top:16px;page-break-inside:avoid">${radarSvg}</div>
   </div>
@@ -2391,7 +2391,7 @@ function printSummary() {
   ${topChargedHtml}
 
   <!-- Линия -->
-  <div style="height:2px;background:#1c1a17;margin:0 32px"></div>
+  <div style="height:2px;background:#4f6b4b;margin:0 32px"></div>
 
   <!-- Детали -->
   <div style="padding:20px 32px">
@@ -2400,7 +2400,7 @@ function printSummary() {
   </div>
 
   <!-- Что дальше -->
-  <div style="background:#1c1a17;color:white;padding:20px 32px;page-break-inside:avoid">
+  <div style="background:#4f6b4b;color:white;padding:20px 32px;page-break-inside:avoid">
     <div style="font-size:14px;font-weight:700;margin-bottom:6px">Что делать с этими результатами</div>
     <div style="font-size:11.5px;color:#ccc;line-height:1.7">Карта показывает, какие страхи и с какой силой управляют вашими решениями. Каждый из них прорабатывается по методу Шарпа: специалист находит причину заряда и разряжает её, а контрольный замер по этим же тестам показывает динамику в цифрах. Запишитесь на разбор вашей карты к специалисту по методу Шарпа: <a href="https://t.me/Rebrova_Yuliia" style="color:#7fd1e0;text-decoration:underline">t.me/Rebrova_Yuliia</a></div>
   </div>
@@ -2483,7 +2483,7 @@ function renderMatrixTabs() {
   ).join('')
   + `<span style="flex-basis:100%;height:0"></span>`
   + [['all','Все пункты'],['trauma','Травмированные'],['worse','Ухудшения'],['better','Улучшения']].map(([k,label]) =>
-    `<button onclick="mtxFilter='${k}';renderMatrixTabs()" style="padding:7px 14px;font-family:var(--sans);font-size:12px;font-weight:700;cursor:pointer;border-radius:99px;border:1.5px solid ${mtxFilter===k?'var(--accent)':'var(--border)'};background:${mtxFilter===k?'#fdf0ee':'white'};color:${mtxFilter===k?'var(--accent)':'var(--muted)'}">${label}</button>`
+    `<button onclick="mtxFilter='${k}';renderMatrixTabs()" style="padding:7px 14px;font-family:var(--sans);font-size:12px;font-weight:700;cursor:pointer;border-radius:99px;border:1.5px solid ${mtxFilter===k?'var(--accent)':'var(--border)'};background:${mtxFilter===k?'#e9efe3':'white'};color:${mtxFilter===k?'var(--accent)':'var(--muted)'}">${label}</button>`
   ).join('');
   document.getElementById('matrixBody').innerHTML = buildMatrixTable(mtxCurrentTest, false);
 }
@@ -2517,7 +2517,7 @@ function buildMatrixTable(testName, forPrint, fltOverride) {
   const traumaOf = r => r.answers.filter(a=>a===3||a===2).length;
   const tLast = traumaOf(last);
   let summaryChips = `<div style="display:flex;flex-wrap:wrap;gap:10px;margin-bottom:16px;align-items:center">`;
-  summaryChips += `<span style="padding:8px 16px;border-radius:12px;background:#f0ebe0;color:#1c1a17;font-size:13px;font-weight:700">Травмированных сейчас: ${tLast} из ${last.answers.filter(a=>a!==null&&a!==undefined).length}</span>`;
+  summaryChips += `<span style="padding:8px 16px;border-radius:12px;background:#f0ebe0;color:#2f3329;font-size:13px;font-weight:700">Травмированных сейчас: ${tLast} из ${last.answers.filter(a=>a!==null&&a!==undefined).length}</span>`;
   if (prev) {
     const tPrev = traumaOf(prev);
     const d = tLast - tPrev;
@@ -2548,7 +2548,7 @@ function buildMatrixTable(testName, forPrint, fltOverride) {
     const secTrauma = idxs.filter(i=>{const a=last.answers[i];return a===3||a===2}).length;
     const passIdxs = idxs.filter(rowPass);
     if (passIdxs.length) {
-      rows += `<tr><td colspan="${runs.length + (prev?2:1)}" style="padding:14px 10px 6px;font-size:11px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:#1c1a17">${section.title} <span style="font-weight:400;color:#999;text-transform:none;letter-spacing:0">· травмировано ${secTrauma} из ${section.questions.length}</span></td></tr>`;
+      rows += `<tr><td colspan="${runs.length + (prev?2:1)}" style="padding:14px 10px 6px;font-size:11px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:#2f3329">${section.title} <span style="font-weight:400;color:#999;text-transform:none;letter-spacing:0">· травмировано ${secTrauma} из ${section.questions.length}</span></td></tr>`;
       let z = 0;
       section.questions.forEach((qText,k) => {
         const idx = gq + k;
@@ -2575,8 +2575,8 @@ function buildMatrixTable(testName, forPrint, fltOverride) {
       + runs.map(r => `<td style="padding:6px 10px;text-align:center;font-size:11px;font-weight:700;color:${txt}">${r.answers.filter(a=>a===level).length}</td>`).join('')
       + (prev?'<td></td>':'') + '</tr>';
   }).join('');
-  const trauma = `<tr style="border-top:2px solid #1c1a17"><td style="padding:9px 10px;font-size:12px;font-weight:800;color:#1c1a17;position:sticky;left:0;background:${stickyBg}">Сумма травмированных</td>`
-    + runs.map(r => `<td style="padding:9px 10px;text-align:center;font-size:13px;font-weight:800;border-radius:8px;background:#1c1a17;color:white">${traumaOf(r)}</td>`).join('')
+  const trauma = `<tr style="border-top:2px solid #2f3329"><td style="padding:9px 10px;font-size:12px;font-weight:800;color:#2f3329;position:sticky;left:0;background:${stickyBg}">Сумма травмированных</td>`
+    + runs.map(r => `<td style="padding:9px 10px;text-align:center;font-size:13px;font-weight:800;border-radius:8px;background:#4f6b4b;color:white">${traumaOf(r)}</td>`).join('')
     + (prev ? deltaCell(tLast, traumaOf(prev)).replace('font-size:12px','font-size:14px') : '') + '</tr>';
 
   return summaryChips + `<table style="border-collapse:collapse;width:100%;min-width:560px">${head}${rows}${counters}${trauma}</table>
@@ -2593,8 +2593,8 @@ function printMatrix() {
   const w = window.open('', '_blank');
   w.document.write(`<!DOCTYPE html><html><head><meta charset="utf-8"><title>Матрица ответов · ${mtxCurrentTest}</title></head>
   <body style="font-family:Arial,sans-serif;margin:24px;color:#333">
-    <div style="border-bottom:3px solid #1c1a17;padding-bottom:10px;margin-bottom:16px">
-      <div style="font-size:18px;font-weight:800;color:#1c1a17">Матрица ответов · ${mtxCurrentTest}</div>
+    <div style="border-bottom:3px solid #2f3329;padding-bottom:10px;margin-bottom:16px">
+      <div style="font-size:18px;font-weight:800;color:#2f3329">Матрица ответов · ${mtxCurrentTest}</div>
       <div style="font-size:11px;color:#888;margin-top:4px">${name ? name + ' · ' : ''}Диагностика по Методу Шарпа · Юлия Реброва · t.me/Rebrova_Yuliia</div>
     </div>
     ${table}
