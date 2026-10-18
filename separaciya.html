@@ -1,0 +1,260 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta property="og:title" content="Насколько ты отделилась от родителей?">
+<meta property="og:description" content="Тест на сепарацию от родителей от психолога Юлии Ребровой: 13 вопросов, 3 минуты.">
+<title>Тест на сепарацию от родителей</title>
+<script src="https://telegram.org/js/telegram-web-app.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Prata&family=Manrope:wght@400;500;600;700&display=swap">
+<style>
+:root{
+  --ground:#F3EDE2; --surface:#FBF8F2; --ink:#2F3329; --muted:#6B6E5F; --line:#E2D9C8;
+  --accent:#5C7A57; --accent-ink:#FFFFFF; --blush:#EADFC9; --soft:#E5EADB; --glow:rgba(92,122,87,.18);
+  --c-a:#C39683; --c-b:#C4A04A; --c-c:#5C7A57;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    color-scheme:dark;
+    --ground:#1B1E18; --surface:#242820; --ink:#EEEAE0; --muted:#B2AE9E; --line:#383C31;
+    --accent:#A8C29E; --accent-ink:#1B1E18; --blush:#2F2B22; --soft:#2B3126; --glow:rgba(168,194,158,.16);
+    --c-a:#DDB2A0; --c-b:#DDBD6A; --c-c:#A8C29E;
+  }
+}
+:root[data-theme="dark"]{
+  color-scheme:dark;
+  --ground:#1B1E18; --surface:#242820; --ink:#EEEAE0; --muted:#B2AE9E; --line:#383C31;
+  --accent:#A8C29E; --accent-ink:#1B1E18; --blush:#2F2B22; --soft:#2B3126; --glow:rgba(168,194,158,.16);
+  --c-a:#DDB2A0; --c-b:#DDBD6A; --c-c:#A8C29E;
+}
+*{box-sizing:border-box}
+html{color-scheme:light}
+html,body{min-height:100%}
+body{
+  margin:0;background:var(--ground);color:var(--ink);
+  font-family:"Manrope",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;font-size:16px;line-height:1.55;
+  padding-inline:16px;padding-block:28px 48px;
+  background-image:radial-gradient(520px 320px at 12% -4%, var(--blush), transparent 70%),radial-gradient(460px 300px at 100% 18%, var(--soft), transparent 70%);
+  background-repeat:no-repeat;
+}
+[hidden]{display:none!important}
+.wrap{max-width:560px;margin:0 auto;display:flex;flex-direction:column;gap:20px}
+.brand{display:flex;align-items:center;gap:10px;color:var(--muted);font-size:13px;letter-spacing:.06em;text-transform:uppercase;font-weight:600}
+.brand .dot{width:8px;height:8px;border-radius:50%;background:var(--accent)}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:22px;padding:28px 22px;box-shadow:0 18px 50px -24px var(--glow)}
+@media (min-width:520px){.card{padding:36px 34px}}
+h1,h2{font-family:"Prata",Georgia,"Times New Roman",serif;font-weight:400;text-wrap:balance;margin:0}
+h1{font-size:clamp(30px,8vw,40px);line-height:1.15}
+h2{font-size:clamp(22px,6vw,27px);line-height:1.25}
+p{margin:0}
+.lead{color:var(--muted);font-size:17px}
+.stack{display:flex;flex-direction:column;gap:16px}
+.orbs{display:flex;gap:10px;margin-bottom:4px}
+.orbs span{width:34px;height:34px;border-radius:50%;opacity:.9}
+.meta{display:flex;flex-wrap:wrap;gap:8px}
+.chip{font-size:13px;padding:6px 12px;border-radius:999px;background:var(--soft);color:var(--ink);font-weight:500}
+.btn{appearance:none;border:0;cursor:pointer;font:inherit;font-weight:700;font-size:16px;background:var(--accent);color:var(--accent-ink);border-radius:14px;padding:16px 22px;text-decoration:none;display:inline-flex;align-items:center;justify-content:center;gap:10px;width:100%;transition:transform .15s ease, box-shadow .15s ease}
+.btn:hover{transform:translateY(-1px);box-shadow:0 10px 24px -12px var(--accent)}
+.btn:focus-visible,.opt:focus-visible,.ghost:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+.ghost{appearance:none;background:none;border:0;color:var(--muted);font:inherit;font-size:14px;cursor:pointer;padding:6px 0;text-decoration:underline;text-underline-offset:3px}
+.progress{display:flex;gap:4px}
+.progress i{flex:1;height:5px;border-radius:3px;background:var(--line);transition:background .3s}
+.progress i.on{background:var(--accent)}
+.qnum{font-size:13px;color:var(--muted);font-weight:600;letter-spacing:.04em}
+.opts{display:flex;flex-direction:column;gap:10px}
+.opt{appearance:none;text-align:left;font:inherit;color:var(--ink);cursor:pointer;background:var(--ground);border:1.5px solid var(--line);border-radius:14px;padding:14px 16px;display:flex;gap:12px;align-items:flex-start;transition:border-color .15s, background .15s, transform .15s}
+.opt:hover{border-color:var(--accent)}
+.opt.picked{border-color:var(--accent);background:var(--soft);transform:scale(.99)}
+.opt .l{flex:0 0 26px;height:26px;border-radius:50%;border:1.5px solid var(--line);display:grid;place-items:center;font-size:13px;font-weight:700;color:var(--muted)}
+.opt.picked .l{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+.fade{animation:fade .35s ease both}
+@keyframes fade{from{opacity:.001;transform:translateY(8px)}to{opacity:1;transform:none}}
+.sigil{width:120px;height:120px;margin:0 auto;border-radius:50%;display:grid;place-items:center;position:relative}
+.sigil::before{content:"";position:absolute;inset:0;border-radius:50%;background:var(--sc);opacity:.18}
+.sigil::after{content:"";position:absolute;inset:18px;border-radius:50%;background:radial-gradient(circle at 35% 30%, #fff8, transparent 60%), var(--sc)}
+.sigil svg{position:relative;z-index:1;width:44px;height:44px}
+.eyebrow{font-size:13px;letter-spacing:.08em;text-transform:uppercase;font-weight:700;color:var(--sc,var(--accent));text-align:center}
+.result-title{text-align:center;font-size:clamp(30px,9vw,42px)}
+.center{text-align:center}
+.tip{background:var(--soft);border-radius:16px;padding:16px 18px}
+.tip b{display:block;margin-bottom:4px}
+.scale{display:flex;flex-direction:column;gap:8px}
+.scale .track{position:relative;height:10px;border-radius:5px;display:flex;overflow:hidden}
+.scale .track span{display:block;height:100%}
+.scale .pin{position:relative;height:16px}
+.scale .pin b{position:absolute;top:0;transform:translateX(-50%);width:16px;height:16px;border-radius:50%;background:var(--surface);border:3px solid var(--ink)}
+.scale .labels{display:flex;justify-content:space-between;font-size:12px;color:var(--muted);font-weight:600}
+.score{text-align:center;font-size:14px;color:var(--muted);font-variant-numeric:tabular-nums}
+.cta{border-top:1px solid var(--line);padding-top:22px;display:flex;flex-direction:column;gap:14px}
+.small{font-size:14px;color:var(--muted)}
+.foot{text-align:center;font-size:13px;color:var(--muted)}
+.foot a,.small a{color:inherit}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="brand"><span class="dot"></span>Юлия Реброва · психолог</div>
+  <main id="app" class="card"></main>
+  <p class="foot">Тест для самопознания, он не ставит диагнозов.<br>Канал: <a href="https://t.me/urebrova" target="_blank" rel="noopener">@urebrova</a></p>
+</div>
+
+<script>
+try{ if(window.Telegram && Telegram.WebApp){ Telegram.WebApp.ready(); Telegram.WebApp.expand(); } }catch(e){}
+
+const CHANNEL = "https://t.me/urebrova";
+const PERSONAL = "https://t.me/Rebrova_Yuliia";
+
+// каждый вариант: [текст, баллы]. Ключ: А = 0, Б = 2, В = 1
+const Q = [
+  {q:"Как ты пережила подростковый бунт?", a:[
+    ["Я была спокойным ребёнком, никакого бунта не припомню",0],
+    ["Был бурный протест лет в 13–16, но я это переросла",2],
+    ["Мой бунт начался позже, лет в 19–23, и иногда кажется, что он так и не закончился",1]]},
+  {q:"Родители недовольны твоим образом жизни или профессией. Что ты чувствуешь?", a:[
+    ["Острую вину, будто я всё делаю неправильно",0],
+    ["Сожаление, что мы не понимаем друг друга",2],
+    ["Злость и желание сделать всё им назло",1]]},
+  {q:"Какая, по-твоему, главная задача детей по отношению к родителям?", a:[
+    ["Оправдать их ожидания и быть поводом для гордости",0],
+    ["Быть счастливыми",2],
+    ["Не повторить их судьбу",1]]},
+  {q:"Ты знакомишь родителей с любимым человеком, а они явно не в восторге. Твои чувства?", a:[
+    ["Начну сомневаться: может, он мне и правда не пара?",0],
+    ["Огорчусь, конечно, но это мой выбор",2],
+    ["Разозлюсь на родителей: так я никогда не создам семью!",1]]},
+  {q:"Как часто ты созваниваешься с родителями?", a:[
+    ["Мы постоянно на связи",0],
+    ["Раз в неделю в привычное время или когда нужно",2],
+    ["Несколько раз в неделю",1]]},
+  {q:"Бывают ли мысли: «Если бы мама вела себя со мной по-другому, моя жизнь сложилась бы лучше»?", a:[
+    ["Нет, меня воспитывали правильно",0],
+    ["Не вижу смысла думать о таком",2],
+    ["Да, постоянно",1]]},
+  {q:"Продолжи фразу: «Мне бы хотелось, чтобы мама…»", a:[
+    ["…всегда была рядом",0],
+    ["…ни в чём не нуждалась",2],
+    ["…гордилась мной",1]]},
+  {q:"Сколько обычно длятся ваши ссоры с родителями?", a:[
+    ["Стараюсь вообще не ссориться, берегу их здоровье",0],
+    ["Мирюсь быстро, мне невыносимо быть в ссоре с самым близким человеком",2],
+    ["Бывает, по несколько дней: хочу, чтобы они поняли, что были неправы",1]]},
+  {q:"Какие у тебя сейчас отношения с родителями?", a:[
+    ["Жалею их и помогаю",0],
+    ["Близкие и тёплые",2],
+    ["Противостояние",1]]},
+  {q:"Ты рассказываешь о своих успехах на работе, а родители не понимают, чем тут гордиться. Что ты чувствуешь?", a:[
+    ["Обиду и разочарование",0],
+    ["Ничего страшного, похвастаюсь тем, кто оценит",2],
+    ["Раздражение: ну как можно этого не понимать?!",1]]},
+  {q:"Когда нужно принять важное решение, ты обычно:", a:[
+    ["Советуюсь с родителями, последнее слово за ними",0],
+    ["Решаю сама, ведь отвечать за ошибку тоже мне",2],
+    ["Решаю сама, но мнение родителей для меня очень важно",1]]},
+  {q:"Ты приходишь в гости к маме, а она резко критикует твой новый наряд. Твоя реакция?", a:[
+    ["Расстроюсь и решу, что вещь и правда ужасная, больше не надену",0],
+    ["Отнесусь спокойно: мама не обязана понимать все модные тренды",2],
+    ["Начну спорить и доказывать, что наряд красивый и мне идёт",1]]},
+  {q:"Насколько ты делишься с мамой своими проблемами и переживаниями?", a:[
+    ["Мама самый близкий человек, рассказываю ей всё",0],
+    ["Делюсь многим, но не всем",2],
+    ["Стараюсь всё решать сама: зачем расстраивать маму?",1]]}
+];
+
+const MAX = Q.length*2;
+
+const R = [
+  {key:"child", name:"Ребёнок", range:[0,6], color:"var(--c-a)",
+   icon:'<svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21c-4.4-2.6-7.5-5.8-7.5-9.6A4 4 0 0 1 12 9a4 4 0 0 1 7.5 2.4c0 3.8-3.1 7-7.5 9.6Z"/><circle cx="12" cy="5" r="2"/></svg>',
+   text:"Ты по-прежнему очень тесно связана с родителями, и эта связь кажется тебе естественной. Их мнение для тебя решающее: хочется угодить, сделать так, чтобы они гордились. Любое несогласие с ними ощущается как предательство или неблагодарность, поэтому мысль жить по-своему пока даже не приходит в голову. Это не плохо и не стыдно. Это точка, с которой начинается взросление.",
+   tip:"Начни с малого. В следующий раз, когда захочется спросить маму, как поступить, сначала спроси себя: «А чего хочу я?» И прислушайся к ответу."},
+  {key:"teen", name:"Подросток", range:[7,20], color:"var(--c-b)",
+   icon:'<svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3c2 3 5 4.5 5 9a5 5 0 0 1-10 0c0-2 1-3.5 2-4.5.3 1.5 1 2.5 2 3 0-3 .5-5 1-7.5Z"/></svg>',
+   text:"Ты на середине пути. Тебе хочется жить своей жизнью, чтобы родители не вмешивались. Но внутри пока нет уверенности, что справишься сама, и где-то глубоко кажется, что им виднее. Поэтому их слова так задевают: ты споришь, обижаешься, доказываешь и очень ждёшь, что они наконец признают тебя взрослой.",
+   tip:"Признание, которого ты ждёшь от родителей, можно дать себе самой. Поверь в свои силы и напоминай себе: родители просто другие люди, и ваши мнения имеют право не совпадать."},
+  {key:"adult", name:"Взрослая", range:[21,26], color:"var(--c-c)",
+   icon:'<svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21V11"/><path d="M12 11c0-4 3-7 7-7 0 4-3 7-7 7Z"/><path d="M12 14c0-3-2.5-5.5-6-5.5 0 3.5 2.5 5.5 6 5.5Z"/></svg>',
+   text:"Ты эмоционально отделилась от родителей. Они для тебя близкие люди, о которых хочется заботиться, но свои решения ты принимаешь сама. Если родители чего-то не понимают, ты принимаешь это спокойно, без обид и войны: у них своё мнение, у тебя своё. Это и есть настоящая взрослость.",
+   tip:"Следи, чтобы самостоятельность не превратилась в «всё сама». Делиться с близкими и просить о поддержке тоже признак взрослого человека."}
+];
+
+// перемешиваем порядок вариантов, чтобы не угадывалась система баллов
+function shuffle(arr, seed){ const a=arr.slice(); let s=seed; for(let i=a.length-1;i>0;i--){ s=(s*9301+49297)%233280; const j=Math.floor(s/233280*(i+1)); [a[i],a[j]]=[a[j],a[i]]; } return a; }
+const VIEW = Q.map((it,k)=>({q:it.q, a:shuffle(it.a, k*7+3)}));
+
+const app = document.getElementById("app");
+let step = -1, answers = [];
+
+function start(){
+  step = -1; answers = [];
+  app.style.removeProperty("--sc");
+  app.innerHTML = `
+    <div class="stack fade">
+      <div class="orbs" aria-hidden="true">${R.map(r=>`<span style="background:${r.color}"></span>`).join("")}</div>
+      <h1>Насколько ты отделилась от родителей?</h1>
+      <p class="lead">Можно жить отдельно, иметь свою семью и всё равно оставаться маленькой девочкой рядом с мамой. Этот тест покажет, где ты сейчас: ещё ребёнок, бунтующий подросток или уже взрослая.</p>
+      <div class="meta"><span class="chip">13 вопросов</span><span class="chip">3 минуты</span><span class="chip">Без правильных ответов</span></div>
+      <button class="btn" id="go">Пройти тест</button>
+      <p class="small">Отвечай честно и выбирай то, что ближе всего, даже если подходит не идеально.</p>
+    </div>`;
+  document.getElementById("go").onclick = () => { step = 0; renderQ(); };
+}
+
+function renderQ(){
+  const item = VIEW[step];
+  app.innerHTML = `
+    <div class="stack fade">
+      <div class="progress" aria-hidden="true">${VIEW.map((_,i)=>`<i class="${i<=step?'on':''}"></i>`).join("")}</div>
+      <div class="qnum">Вопрос ${step+1} из ${VIEW.length}</div>
+      <h2>${item.q}</h2>
+      <div class="opts" role="list">
+        ${item.a.map((t,i)=>`<button class="opt${answers[step]===i?' picked':''}" data-i="${i}" role="listitem"><span class="l">${"АБВ"[i]}</span><span>${t[0]}</span></button>`).join("")}
+      </div>
+      ${step>0?'<button class="ghost" id="back">← Назад</button>':''}
+    </div>`;
+  app.querySelectorAll(".opt").forEach(b=>b.onclick=()=>{
+    const i=+b.dataset.i; answers[step]=i;
+    app.querySelectorAll(".opt").forEach(x=>x.classList.remove("picked"));
+    b.classList.add("picked");
+    setTimeout(()=>{ step++; step<VIEW.length?renderQ():renderResult(); window.scrollTo({top:0,behavior:"smooth"}); }, 260);
+  });
+  const back=document.getElementById("back");
+  if(back) back.onclick=()=>{ step--; renderQ(); };
+}
+
+function renderResult(){
+  const score = answers.reduce((s,i,k)=>s+VIEW[k].a[i][1],0);
+  const r = R.find(x=>score>=x.range[0] && score<=x.range[1]) || R[R.length-1];
+  const w = R.map(x=>(x.range[1]-x.range[0]+1)/(MAX+1)*100);
+  app.style.setProperty("--sc", r.color);
+  app.innerHTML = `
+    <div class="stack fade">
+      <div class="sigil" aria-hidden="true">${r.icon}</div>
+      <div class="eyebrow">Твой уровень сепарации</div>
+      <h1 class="result-title">${r.name}</h1>
+      <div class="score">${score} из ${MAX} баллов</div>
+      <div class="scale" aria-label="Шкала сепарации">
+        <div class="track">${R.map((x,i)=>`<span style="width:${w[i]}%;background:${x.color};opacity:${x===r?1:.35}"></span>`).join("")}</div>
+        <div class="pin"><b style="left:${Math.min(97,Math.max(3,(score+.5)/(MAX+1)*100))}%"></b></div>
+        <div class="labels">${R.map(x=>`<span>${x.name}</span>`).join("")}</div>
+      </div>
+      <p>${r.text}</p>
+      <div class="tip"><b>Что с этим делать</b>${r.tip}</div>
+      <div class="cta">
+        <h2>Сепарация не значит перестать любить родителей. Это значит начать жить свою жизнь</h2>
+        <p class="small">Об этом я пишу в своём Telegram-канале «Реброва ProПсихологию быть счастливым»: как выйти из роли вечной дочки, перестать спасать родителей и жить без чувства вины.</p>
+        <a class="btn" href="${CHANNEL}" target="_blank" rel="noopener">Перейти в канал →</a>
+        <p class="small center">Хочешь разобраться глубже? Запись на консультацию: <a href="${PERSONAL}" target="_blank" rel="noopener">@Rebrova_Yuliia</a></p>
+        <button class="ghost" id="again" style="align-self:center">Пройти ещё раз</button>
+      </div>
+    </div>`;
+  document.getElementById("again").onclick=()=>start();
+}
+
+start();
+</script>
+</body>
+</html>
